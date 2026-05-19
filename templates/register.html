@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+
+    <h1>Register</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Username</label>
+        <br>
+        {{ form.username }}
+
+        <br><br>
+
+        <label>Email</label>
+        <br>
+        {{ form.email }}
+
+        <br><br>
+
+        <label>Password</label>
+        <br>
+        {{ form.password1 }}
+
+        <br><br>
+
+        <label>Confirm Password</label>
+        <br>
+        {{ form.password2 }}
+
+        <br><br>
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

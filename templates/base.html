@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Website</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f5f5f5;
+            margin:0;
+        }
+
+        nav{
+            background:#111827;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-right:15px;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            margin-top:30px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            margin-bottom:20px;
+            border-radius:10px;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        input, textarea{
+            width:100%;
+            padding:10px;
+            margin-top:10px;
+        }
+
+        button{
+            background:#2563eb;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            margin-top:10px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+
+    {% if user.is_authenticated %}
+        <a href="/create/">Create Post</a>
+        <a href="/logout/">Logout</a>
+    {% else %}
+        <a href="/login/">Login</a>
+        <a href="/register/">Register</a>
+    {% endif %}
+</nav>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
